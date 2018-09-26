@@ -1,0 +1,14 @@
+.root {
+    -fx-background-image: url("https://i.imgur.com/crsmfSd.jpg");
+}
+.button {
+    -fx-background-radius:2px;
+    -fx-background-color: #5ebaa9;
+    -fx-effect:dropShadow(one-pass-box, grey, 5, 5, 0, 0);
+}
+.text-field {
+    -fx-background-radius:5px;
+}
+.label {
+    -fx-effect: dropShadow(one-pass-box, grey, 1, 1, 1, 1);
+}

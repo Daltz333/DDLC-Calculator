@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="TOP_CENTER" hgap="10.0" minHeight="500.0" minWidth="300.0" vgap="4.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CalculatorFX.Events.EventController">
+    <Pane GridPane.rowIndex="1">
+        <TextField fx:id="textBox" alignment="TOP_LEFT" editable="false" layoutX="-4.0" minHeight="30.0" minWidth="245.0" nodeOrientation="LEFT_TO_RIGHT">
+         <font>
+            <Font name="Droid Sans Mono" size="24.0" />
+         </font></TextField>
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+    </Pane>
+   <GridPane alignment="CENTER" minHeight="400.0" nodeOrientation="LEFT_TO_RIGHT" GridPane.rowIndex="16">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+     </rowConstraints>
+      <children>
+         <VBox alignment="TOP_CENTER" minWidth="30.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.rowSpan="2">
+            <children>
+               <Button fx:id="numOne" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="1">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin></Button>
+               <Button fx:id="numFour" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="4" />
+               <Button fx:id="numSeven" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="7" />
+            </children>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+         </VBox>
+         <VBox alignment="TOP_CENTER" minWidth="30.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowSpan="2">
+            <children>
+               <Button fx:id="numTwo" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="2" />
+               <Button fx:id="numFive" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="5" />
+               <Button fx:id="numEight" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="8" />
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#justMonika" text="Yes" />
+            </children>
+         </VBox>
+         <VBox alignment="TOP_CENTER" minWidth="30.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowSpan="2">
+            <children>
+               <Button fx:id="numThree" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="3" />
+               <Button fx:id="numSix" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="6" />
+               <Button fx:id="numNine" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="9" />
+               <Button fx:id="numZero" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="0" />
+            </children>
+         </VBox>
+         <VBox alignment="TOP_CENTER" minWidth="30.0" prefWidth="62.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowSpan="3">
+            <children>
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clearTextField" text="C" />
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#setOperand" text="+" />
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#setOperand" text="-">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin></Button>
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#setOperand" text="*" />
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#setOperand" text="/" />
+               <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#calculate" text="=" />
+            </children>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+         </VBox>
+      </children>
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin>
+   </GridPane>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="7.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="50.0" percentHeight="0.0" />
+      <RowConstraints maxHeight="96.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="300.0" />
+   </rowConstraints>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+
+</GridPane>
