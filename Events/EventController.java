@@ -9,10 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.awt.AWTException;
+import java.io.InputStream;
 import java.util.Timer;
-import java.util.concurrent.Executors;
 
-import CalculatorFX.Main;
 import CalculatorFX.Logic.Basic;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -27,13 +26,14 @@ public class EventController {
     Hacks hacker = new Hacks();
     String temp = "";
     Timer timer = new Timer();
-    Threaded music = new Threaded(10);
+    Threaded music = new Threaded();
     Thread t = new Thread(music);
     int delay = 5000;   // delay for 5 sec.
     int interval = 1000;  // iterate every sec.
     Boolean justSayori = false;
+    PathAssets pathAssets = new PathAssets();
 
-	int currentState = 0;
+    int currentState = 0;
 
     @FXML public void inputNum(ActionEvent event){
         //get current numButton, convert from string to int
@@ -65,52 +65,53 @@ public class EventController {
     }
 
     int counter = 0;
+
     @FXML public void justMonika(ActionEvent event) throws InterruptedException, AWTException {
-    	 	
+
+        Stage stageSource = (Stage)((Node)event.getSource()).getScene().getWindow();
         textBox.setText("Just Monika");
         hacker.changeWallpaper();
         if (t.getState() == Thread.State.RUNNABLE) {
-        	//do nothing
-        	System.out.println("Thread in use");
-        	
+            //do nothing
+            System.out.println("Thread in use");
+
         } else {
-        	t.start();
-        	System.out.println("Playing Music");
-        	
+            t.start();
+            System.out.println("Playing Music");
+
         }
-        
-		Stage stageSource = (Stage)((Node)event.getSource()).getScene().getWindow();
-		stageSource.toFront();
-		stageSource.setMaximized(true);
-		
-		Timeline timeline = new Timeline(
-		    new KeyFrame(Duration.seconds(5), e -> {
-		        if (counter == 0) { textBox.setText("Just.. Sayori.");}
-		        if (counter == 1) { textBox.setText("You can't hide");}
-		        if (counter == 2) { textBox.setText("I loved you");}
-		        if (counter == 3) { textBox.setText("and you did this to me");}
-		        if (counter == 4) { textBox.setText("you can't run");}
-		        if (counter == 5) { textBox.setText("Together.. forever");}
-		        if (counter == 6) { try {
-		        	stageSource.setMaximized(false);
-					hacker.showDesktop();
-					
-				} catch (AWTException e1) {
-					e1.printStackTrace();
-					
-				}}
-		       counter += 1;
-		       
-		    })
-		    
-		);
-		
-		justSayori = true;
-		timeline.setCycleCount(7);
-		timeline.play();
-        
+
+        stageSource.toFront();
+        stageSource.setMaximized(true);
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(5), e -> {
+                    if (counter == 0) { textBox.setText("Just.. Sayori.");}
+                    if (counter == 1) { textBox.setText("You can't hide");}
+                    if (counter == 2) { textBox.setText("I loved you");}
+                    if (counter == 3) { textBox.setText("and you did this to me");}
+                    if (counter == 4) { textBox.setText("you can't run");}
+                    if (counter == 5) { textBox.setText("Together.. forever");}
+                    if (counter == 6) { try {
+                        stageSource.setMaximized(false);
+                        hacker.showDesktop();
+
+                    } catch (AWTException e1) {
+                        e1.printStackTrace();
+
+                    }}
+                    counter += 1;
+
+                })
+
+        );
+
+        justSayori = true;
+        timeline.setCycleCount(7);
+        timeline.play();
+
     }
-    
+
     @FXML public void calculate() {
         temp="";
         if (basicMath.getCurrentState() == 2) {
@@ -124,19 +125,19 @@ public class EventController {
         }
 
     }
-    
+
     @FXML
     public void exitApplication(ActionEvent event) {
-       Platform.exit();
+        Platform.exit();
     }
 
     @FXML public void clearTextField() {
         textBox.clear();
         basicMath.clearNumData();
-        
+
         if (justSayori) {
-        	System.exit(0);
-        	
+            System.exit(0);
+
         }
 
     }

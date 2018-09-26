@@ -1,5 +1,7 @@
 package CalculatorFX;
 
+import CalculatorFX.Events.EventController;
+import CalculatorFX.Logic.Basic;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -11,8 +13,10 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 public class Main extends Application {
-	
-	private static Stage primaryStage;
+
+    private static Stage primaryStage;
+    private String path;
+    EventController control = new EventController();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -23,31 +27,32 @@ public class Main extends Application {
         primaryStage.setTitle("Anime Calculator");
         primaryStage.setScene(new Scene(root, 290, 450));
         Platform.setImplicitExit(false);
-        
+
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-            	stop();
+                stop();
             }
         });
 
         primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
-       
+
+
     }
 
 
     public static void main(String[] args) {
         launch(args);
-        
+
     }
-    
+
     @Override
     public void stop(){
         System.out.println("Stage is closing");
         System.exit(0);
-        
+
         // Save file
     }
-    
+
 }

@@ -60,7 +60,7 @@
                <Button fx:id="numThree" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="3" />
                <Button fx:id="numSix" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="6" />
                <Button fx:id="numNine" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="9" />
-               <Button fx:id="numZero" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#inputNum" text="0" />
+               <Button fx:id="numZero" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" text="0" />
             </children>
          </VBox>
          <VBox alignment="TOP_CENTER" minWidth="30.0" prefWidth="62.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowSpan="3">

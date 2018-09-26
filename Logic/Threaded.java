@@ -1,14 +1,14 @@
 package CalculatorFX.Logic;
 
+import CalculatorFX.Logic.Hacks;
+
 public class Threaded implements Runnable {
 
-    private int var;
     private boolean stop = false;
     
     Hacks hacker = new Hacks();
 
-    public Threaded(int var) {
-        this.var = var;
+    public Threaded() {
         
     }
 
