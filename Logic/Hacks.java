@@ -1,7 +1,14 @@
-package CalculatorFX.Logic;
+package Calculator.Logic;
 
-import java.awt.AWTException;
-import java.awt.Robot;
+import com.sun.jna.Native;
+import com.sun.jna.platform.win32.WinDef.UINT_PTR;
+import com.sun.jna.win32.StdCallLibrary;
+import com.sun.jna.win32.W32APIFunctionMapper;
+import com.sun.jna.win32.W32APITypeMapper;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.DataInputStream;
 import java.io.File;
@@ -9,13 +16,6 @@ import java.io.FileOutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
-
-import com.sun.jna.Native;
-import com.sun.jna.platform.win32.WinDef.UINT_PTR;
-import com.sun.jna.win32.*;
-
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 public class Hacks {
     URL url;
@@ -61,7 +61,7 @@ public class Hacks {
         retrieveFile("https://i.redd.it/zpilkwhfpy901.jpg", "Monika.png");
         System.out.println("After get file");
         //supply your own path instead of using this one
-        String filePath = getCurrentPath() + "\\Monika.png";
+        String filePath = getCurrentPath() + "\\" + "Monika.png";
         String path = filePath;
 
         SPI.INSTANCE.SystemParametersInfo(

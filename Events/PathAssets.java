@@ -1,4 +1,4 @@
-package CalculatorFX.Events;
+package Calculator.Events;
 
 public class PathAssets {
 

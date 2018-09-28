@@ -1,4 +1,4 @@
-package CalculatorFX.Logic;
+package Calculator.Logic;
 
 public class Basic {
 

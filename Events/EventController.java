@@ -1,7 +1,7 @@
-package CalculatorFX.Events;
+package Calculator.Events;
 
-import CalculatorFX.Logic.Hacks;
-import CalculatorFX.Logic.Threaded;
+import Calculator.Logic.Hacks;
+import Calculator.Logic.Threaded;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -9,10 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.awt.AWTException;
-import java.io.InputStream;
 import java.util.Timer;
 
-import CalculatorFX.Logic.Basic;
+import Calculator.Logic.Basic;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -31,7 +30,6 @@ public class EventController {
     int delay = 5000;   // delay for 5 sec.
     int interval = 1000;  // iterate every sec.
     Boolean justSayori = false;
-    PathAssets pathAssets = new PathAssets();
 
     int currentState = 0;
 

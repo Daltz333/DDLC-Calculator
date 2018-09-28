@@ -1,6 +1,6 @@
-package CalculatorFX.Logic;
+package Calculator.Logic;
 
-import CalculatorFX.Logic.Hacks;
+import Calculator.Logic.Hacks;
 
 public class Threaded implements Runnable {
 
