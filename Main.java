@@ -1,7 +1,6 @@
 package Calculator;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,8 +11,6 @@ import javafx.stage.WindowEvent;
 
 public class Main extends Application {
 
-    private static Stage primaryStage;
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("UI/CalculatorMain.fxml"));
@@ -22,7 +19,6 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setTitle("Anime Calculator");
         primaryStage.setScene(new Scene(root, 290, 450));
-        //Platform.setImplicitExit(false);
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
