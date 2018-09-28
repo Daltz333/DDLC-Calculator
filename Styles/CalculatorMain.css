@@ -1,5 +1,7 @@
 .root {
     -fx-background-image: url("https://i.imgur.com/crsmfSd.jpg");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
 }
 .button {
     -fx-background-radius:2px;

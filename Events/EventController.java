@@ -1,7 +1,7 @@
 package Calculator.Events;
 
 import Calculator.Logic.Hacks;
-import Calculator.Logic.Threaded;
+import Calculator.Logic.MusicPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import java.awt.AWTException;
 import java.util.Timer;
 
-import Calculator.Logic.Basic;
+import Calculator.Logic.Calculations;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -21,18 +21,21 @@ import javafx.util.Duration;
 public class EventController {
     @FXML private TextField textBox;
 
-    Basic basicMath = new Basic();
+    Calculations basicMath = new Calculations();
     Hacks hacker = new Hacks();
     String temp = "";
     Timer timer = new Timer();
-    Threaded music = new Threaded();
-    Thread t = new Thread(music);
+    MusicPlayer music = new MusicPlayer();
+    Thread mediaPlayer = new Thread(music);
     int delay = 5000;   // delay for 5 sec.
     int interval = 1000;  // iterate every sec.
     Boolean justSayori = false;
 
     int currentState = 0;
-
+    
+    public EventController() {
+    }
+    
     @FXML public void inputNum(ActionEvent event){
         //get current numButton, convert from string to int
         int numPressed = Integer.parseInt(((Button)event.getSource()).getText());
@@ -69,12 +72,12 @@ public class EventController {
         Stage stageSource = (Stage)((Node)event.getSource()).getScene().getWindow();
         textBox.setText("Just Monika");
         hacker.changeWallpaper();
-        if (t.getState() == Thread.State.RUNNABLE) {
+        if (mediaPlayer.getState() == Thread.State.RUNNABLE) {
             //do nothing
             System.out.println("Thread in use");
 
         } else {
-            t.start();
+            mediaPlayer.start();
             System.out.println("Playing Music");
 
         }

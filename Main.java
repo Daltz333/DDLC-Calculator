@@ -1,5 +1,6 @@
 package Calculator;
 
+import Calculator.Logic.Hacks;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -11,13 +12,15 @@ import javafx.stage.WindowEvent;
 
 public class Main extends Application {
 
+	static Hacks resources = new Hacks();
+	
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("UI/CalculatorMain.fxml"));
         root.getStylesheets().add(getClass().getResource("Styles/CalculatorMain.css").toExternalForm());
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Anime Calculator");
+        primaryStage.setTitle("DDLC-Calculator");
         primaryStage.setScene(new Scene(root, 290, 450));
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -35,6 +38,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+    	resources.downloadResources();
         launch(args);
 
     }
@@ -44,7 +48,6 @@ public class Main extends Application {
         System.out.println("Stage is closing");
         System.exit(0);
 
-        // Save file
     }
 
 }

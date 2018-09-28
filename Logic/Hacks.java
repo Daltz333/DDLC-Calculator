@@ -24,14 +24,32 @@ public class Hacks {
     FileOutputStream fos;
     byte[] fileData;
 
+    //gets the current path of the file system
     private String getCurrentPath() {
         return new File(ClassLoader.getSystemClassLoader().getResource(".").getPath()).getAbsolutePath();
 
     }
+    
+    public void downloadResources() {
+    	File monika = new File(getCurrentPath() + "\\" + "Monika.png");
+    	File music = new File(getCurrentPath() + "\\" + "Sayori.mp3");
+    	
+    	System.out.println("Check if resources exist");
+    	if (!monika.exists()) {
+	    	System.out.println("Retrieve Wallpaper Image");
+	    	retrieveFile("https://i.redd.it/zpilkwhfpy901.jpg", "Monika.png");
+	    	
+    	}
+    	
+    	if (!music.exists()) {
+    		System.out.println("Retrieve Music");
+        	retrieveFile("http://daltz-network.softether.net/Sayori.mp3", "Sayori.mp3");
+        	
+    	}
+   
+    }
 
-    public void retrieveFile(String fileToGet, String name) {
-
-        System.out.println("Before get current path");
+    private void retrieveFile(String fileToGet, String name) {
         String filePath = getCurrentPath() + "\\" + name;
         System.out.println("Current Path to paste is: " + filePath);
         try {
@@ -57,10 +75,6 @@ public class Hacks {
     }
 
     public void changeWallpaper() {
-        System.out.println("Before get file");
-        retrieveFile("https://i.redd.it/zpilkwhfpy901.jpg", "Monika.png");
-        System.out.println("After get file");
-        //supply your own path instead of using this one
         String filePath = getCurrentPath() + "\\" + "Monika.png";
         String path = filePath;
 
@@ -75,14 +89,19 @@ public class Hacks {
     MediaPlayer mediaPlayer;
     boolean isPlaying = false;
     public void playMusic() {
-        retrieveFile("http://daltz-network.softether.net/Sayori.mp3", "Sayori.mp3");
-        String filePath = getCurrentPath() + "\\" + "Sayori.mp3";
-        String bip = filePath;
-        Media hit = new Media(new File(bip).toURI().toString());
-        mediaPlayer = new MediaPlayer(hit);
-        isPlaying = true;
+    	System.out.println("Playing Music");
         mediaPlayer.play();
+        isPlaying = true;
 
+    }
+    
+    public void bufferMusic() {
+    	System.out.println("Buffering Music");
+        String filePath = getCurrentPath() + "\\" + "Sayori.mp3";
+        Media hit = new Media(new File(filePath).toURI().toString());
+        mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
+        mediaPlayer.pause();
     }
 
     public void stopMusic() {
@@ -105,8 +124,7 @@ public class Hacks {
 
     }
 
-    public interface SPI extends StdCallLibrary {
-        //from MSDN article
+    private interface SPI extends StdCallLibrary {
         long SPI_SETDESKWALLPAPER = 20;
         long SPIF_UPDATEINIFILE = 0x01;
         long SPIF_SENDWININICHANGE = 0x02;
